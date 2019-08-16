@@ -34,6 +34,6 @@ app.get("/api/hello", function (req, res) {
 });
 
 
-app.listen(port, function () {
-  console.log('Node.js listening ...');
+var listener = app.listen(port, function () {
+  console.log('Node.js listening on port ' + listener.address().port);
 });
