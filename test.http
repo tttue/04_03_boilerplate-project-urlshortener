@@ -1,0 +1,7 @@
+@link = http://localhost:3000
+###
+POST {{link}}/api/shorturl/new
+Accept:  */*
+Content-Type: application/x-www-form-urlencoded
+
+url=http%3A%2F%2Fvnexpress.net
