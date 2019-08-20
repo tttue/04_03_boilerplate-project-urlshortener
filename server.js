@@ -47,11 +47,7 @@ router.post("/shorturl/new", function (req, res, next) {
 		res.json({ error: "invalid URL" });
 	} else {
 		var s = url.split("/");
-		const options = {
-			family: 6,
-			hints: dns.ADDRCONFIG | dns.V4MAPPED,
-		};
-		dns.lookup(s[2], options, (err, address, family) => {
+		dns.lookup(s[2], (err, address, family) => {
 			if (err) { clearTimeout(t); res.json({ error: "invalid URL" }); }
 			else {
 				createUrl(url, (err, data) => {
