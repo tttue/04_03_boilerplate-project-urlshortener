@@ -12,13 +12,11 @@ var URLShortener = mongoose.model('URLShortener', urlShortenerSchema);
 
 
 var createUrl = (urlLink, done) => {
-	console.log("New URL:", urlLink);
 	URLShortener.findOne()
 		.sort({ "shortId": -1 })
 		.limit(1)
 		.exec(function (err, data) {
 			if (err) {
-				console.log("error 1: ", err);
 				done(err);
 			} else {
 				let nextId = 1;
@@ -30,7 +28,7 @@ var createUrl = (urlLink, done) => {
 					shortId: nextId
 				}
 				let url = new URLShortener(objUrl);
-				url.save((err, data) => err ? done(err) : done(err, data));
+				url.save((err, data) => err ? done(err) : done(null, data));
 			}
 		});
 };
