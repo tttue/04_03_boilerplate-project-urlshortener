@@ -1,7 +1,14 @@
-'use strict';
 /*
-	npm install express mongodb mongoose cors dotenv path body-parser
+	npm ln express
+	npm ln mongodb
+	npm ln mongoose
+	npm ln cors
+	npm ln dotenv
+	npm ln path
+	npm ln body-parser
 */
+'use strict';
+
 var express = require('express');
 var dns = require("dns");
 var cors = require('cors');
